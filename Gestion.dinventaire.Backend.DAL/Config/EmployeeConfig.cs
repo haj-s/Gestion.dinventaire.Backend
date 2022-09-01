@@ -16,9 +16,9 @@ namespace Gestion.dinventaire.Backend.DAL.Config
         public void Configure(EntityTypeBuilder<Employee> builder)
     {
         builder.ToTable("T_Employee");
-        builder.HasKey(x => x.id).HasName("PK_Employee");
-        builder.Property(x => x.id).ValueGeneratedOnAdd();
-        builder.Property(x => x.username).IsRequired();
+            builder.HasKey(x => x.id).HasName("PK_Employee");
+            builder.Property(x => x.id).ValueGeneratedOnAdd();
+            builder.Property(x => x.username).IsRequired();
         builder.Property(x => x.email).IsRequired().HasMaxLength(320);
         builder.Property(x => x.password).IsRequired();
         builder.Property(x => x.IsActif).HasDefaultValue(false);

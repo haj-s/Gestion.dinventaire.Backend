@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gestion.dinventaire.Backend.DAL.Migrations
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20220901085423_first")]
+    [Migration("20220901131622_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,20 +26,17 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
 
             modelBuilder.Entity("Gestion.dinventaire.Backend.Models.ChaiseBurautique", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<DateTime>("dateDebut")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("dateFin")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("employeeId")
-                        .HasColumnType("int");
 
                     b.Property<string>("image")
                         .IsRequired()
@@ -54,7 +51,7 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id")
+                    b.HasKey("id")
                         .HasName("PK_chaise");
 
                     b.ToTable("T_chaise", (string)null);
@@ -62,20 +59,17 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
 
             modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Clavier", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<DateTime>("dateDebut")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("dateFin")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("employeeId")
-                        .HasColumnType("int");
 
                     b.Property<string>("image")
                         .IsRequired()
@@ -94,22 +88,19 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id")
+                    b.HasKey("id")
                         .HasName("PK_clavier");
-
-                    b.HasIndex("employeeId")
-                        .IsUnique();
 
                     b.ToTable("T_Clavier", (string)null);
                 });
 
             modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Computer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<DateTime>("DateDebut")
                         .HasColumnType("datetime2");
@@ -130,7 +121,7 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id")
+                    b.HasKey("id")
                         .HasName("PK_computer");
 
                     b.ToTable("T_Computer", (string)null);
@@ -149,6 +140,15 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
+                    b.Property<int?>("chaisid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("clavierid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("computerid")
+                        .HasColumnType("int");
+
                     b.Property<string>("email")
                         .IsRequired()
                         .HasMaxLength(320)
@@ -158,6 +158,9 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("tableid")
+                        .HasColumnType("int");
+
                     b.Property<string>("username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -165,8 +168,16 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                     b.HasKey("id")
                         .HasName("PK_Employee");
 
+                    b.HasIndex("chaisid");
+
+                    b.HasIndex("clavierid");
+
+                    b.HasIndex("computerid");
+
                     b.HasIndex("email")
                         .IsUnique();
+
+                    b.HasIndex("tableid");
 
                     b.ToTable("T_Employee", (string)null);
 
@@ -175,11 +186,11 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
 
             modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Table", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<DateTime>("dateDebut")
                         .HasColumnType("datetime2");
@@ -204,26 +215,57 @@ namespace Gestion.dinventaire.Backend.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id")
+                    b.HasKey("id")
                         .HasName("PK_Table");
 
                     b.ToTable("T_Table", (string)null);
                 });
 
-            modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Clavier", b =>
-                {
-                    b.HasOne("Gestion.dinventaire.Backend.Models.Employee", "employee")
-                        .WithOne("clavier")
-                        .HasForeignKey("Gestion.dinventaire.Backend.Models.Clavier", "employeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("employee");
-                });
-
             modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Employee", b =>
                 {
+                    b.HasOne("Gestion.dinventaire.Backend.Models.ChaiseBurautique", "chais")
+                        .WithMany("employees")
+                        .HasForeignKey("chaisid");
+
+                    b.HasOne("Gestion.dinventaire.Backend.Models.Clavier", "clavier")
+                        .WithMany("employees")
+                        .HasForeignKey("clavierid");
+
+                    b.HasOne("Gestion.dinventaire.Backend.Models.Computer", "computer")
+                        .WithMany("employees")
+                        .HasForeignKey("computerid");
+
+                    b.HasOne("Gestion.dinventaire.Backend.Models.Table", "table")
+                        .WithMany("employees")
+                        .HasForeignKey("tableid");
+
+                    b.Navigation("chais");
+
                     b.Navigation("clavier");
+
+                    b.Navigation("computer");
+
+                    b.Navigation("table");
+                });
+
+            modelBuilder.Entity("Gestion.dinventaire.Backend.Models.ChaiseBurautique", b =>
+                {
+                    b.Navigation("employees");
+                });
+
+            modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Clavier", b =>
+                {
+                    b.Navigation("employees");
+                });
+
+            modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Computer", b =>
+                {
+                    b.Navigation("employees");
+                });
+
+            modelBuilder.Entity("Gestion.dinventaire.Backend.Models.Table", b =>
+                {
+                    b.Navigation("employees");
                 });
 #pragma warning restore 612, 618
         }

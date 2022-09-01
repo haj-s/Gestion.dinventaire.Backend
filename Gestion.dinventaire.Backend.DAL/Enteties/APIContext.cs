@@ -1,4 +1,5 @@
 ﻿using Gestion.dinventaire.Backend.DAL.Config;
+
 using Gestion.dinventaire.Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +18,9 @@ namespace Gestion.dinventaire.Backend.DAL.Enteties
                 claviers = Set<Clavier>();
                 Computers = Set<Computer>();
                 ChaiseBurautiques = Set<ChaiseBurautique>();
+                //equipement_Materielle_Physiques=Set<Equipement_materielle_physique>();
+                //equipement_Materielle_Electroniques = Set<Equipement_materielle_electronique>();
+
                 
             
 
@@ -30,6 +34,9 @@ namespace Gestion.dinventaire.Backend.DAL.Enteties
         public DbSet<Clavier>? claviers { get; set; }
         public DbSet<Computer>? Computers { get; set; }
         public DbSet<ChaiseBurautique>? ChaiseBurautiques { get; set; }
+        //public DbSet<Equipement_materielle_electronique>? equipement_Materielle_Electroniques { get; set; }
+        //   public DbSet<Equipement_materielle_physique>? equipement_Materielle_Physiques { get; set; }
+
 
         //public APIContext()
         //{
