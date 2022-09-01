@@ -1,6 +1,6 @@
 ﻿namespace Gestion.dinventaire.Backend.Models
 {
-    public class Computer:Equipement_materielle_electronique
+    public class Computer
     {
         public int Id { get; set; }
         public string? type { get; set; }

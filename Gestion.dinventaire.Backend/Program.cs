@@ -1,11 +1,14 @@
+using Gestion.dinventaire.Backend.DAL.Enteties;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<APIContext>(options =>
+                   options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.services.AddDbContext<ApiContext>(options =>
-                   options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
 var app = builder.Build();
 

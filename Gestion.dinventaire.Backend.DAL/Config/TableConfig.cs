@@ -15,16 +15,18 @@ namespace Gestion.dinventaire.Backend.DAL.Config
         public void Configure(EntityTypeBuilder<Table> builder)
         {
             builder.ToTable("T_Table");
-            builder.HasKey(x => x.id).HasName("PK_Table");
-            builder.Property(x => x.id).ValueGeneratedOnAdd();
+            builder.HasKey(x => x.Id).HasName("PK_Table");
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.type).IsRequired();
             builder.Property(x => x.reference).IsRequired().HasMaxLength(320);
             builder.Property(x => x.image).IsRequired();
-            builder.Property(x=>x.description).IsRequired();
+            builder.Property(x => x.description).IsRequired();
             builder.Property(x => x.dateDebut).IsRequired();
             builder.Property(x => x.dateFin).IsRequired();
 
-            {
-                {
+
+
+        }
     }
 }
+

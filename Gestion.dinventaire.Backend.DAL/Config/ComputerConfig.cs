@@ -15,14 +15,15 @@ namespace Gestion.dinventaire.Backend.DAL.Config
         public void Configure(EntityTypeBuilder<Computer> builder)
         {
             builder.ToTable("T_Computer");
-            builder.HasKey(x => x.id).HasName("PK_computer");
-            builder.Property(x => x.id).ValueGeneratedOnAdd();
+            builder.HasKey(x => x.Id).HasName("PK_computer");
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.type).IsRequired();
             builder.Property(x => x.reference).IsRequired().HasMaxLength(320);
             builder.Property(x => x.image).IsRequired();
-            builder.Property(x =>x.DateDebut).IsRequired();
-            builder.Property(x=>x.DateFin).IsRequired();
+            builder.Property(x => x.DateDebut).IsRequired();
+            builder.Property(x => x.DateFin).IsRequired();
 
-            {
+            
+        }
     }
 }

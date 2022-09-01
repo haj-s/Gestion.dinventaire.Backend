@@ -7,9 +7,12 @@
         public string? email { get; set; }
         public string? password { get; set; }
         public bool IsActif { get; set; }
-      
-
-    
+       
+        public Clavier? clavier { get; set; }
         
+
+
+
+
     }
 }

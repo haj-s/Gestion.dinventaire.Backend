@@ -27,6 +27,6 @@ namespace Gestion.dinventaire.Backend.DAL.Config
 
     }
 
-    {
+    
     }
 }
