@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gestion.dinventaire.Backend.DAL.Repositories
+namespace Gestion.dinventaire.Backend.DAL.Repositories.Interface
 {
-   public interface IEmployeeRepository:IRepository<EmployeeEntity>
+   public interface IComputerRepository:IRepository<ComputerEntity>
     {
-
     }
 }

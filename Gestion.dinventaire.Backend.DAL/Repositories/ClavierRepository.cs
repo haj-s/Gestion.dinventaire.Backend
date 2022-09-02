@@ -12,16 +12,16 @@ using System.Threading.Tasks;
 
 namespace Gestion.dinventaire.Backend.DAL.Repositories
 {
-    public class ComputerRepository : BaseRepository<Computer>, IComputerRepository
+    public class ClavierRepository : BaseRepository<Clavier>,IClavierRepository 
     {
-        public ComputerRepository(APIContext context) : base(context)
+        public ClavierRepository(APIContext context) : base(context)
         {
         }
 
-        public override bool Add(Computer Model)
+        public override bool Add(Clavier Model)
         {
-            ComputerEntity toInsert = Model.ToEntity();
-            _db.Computers.Add(toInsert);
+            ClavierEntity toInsert = Model.ToEntity();
+            _db.claviers.Add(toInsert);
             try
             {
                 _db.SaveChanges();
@@ -29,7 +29,7 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
             }
             catch (DbUpdateException)
             {
-                _db.Computers.Remove(toInsert);
+                _db.claviers.Remove(toInsert);
                 return false;
             }
         }
@@ -38,7 +38,7 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
         {
             try
             {
-                _db.Computers.Remove(_db.Computers.Find(id)!);
+                _db.claviers.Remove(_db.claviers.Find(id)!);
                 _db.SaveChanges();
                 return true;
             }
@@ -48,29 +48,29 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
             }
         }
 
-        public override IEnumerable<Computer> GetAll()
+        public override IEnumerable<Clavier> GetAll()
         {
-            return _db.Computers.Select(m => m.ToModel());
+            return _db.claviers.Select(m => m.ToModel());
         }
 
-        public override Computer GetOne(int id)
+        public override Clavier GetOne(int id)
         {
-             return _db.Computers.Find(id)!.ToModel();
+            return _db.claviers.Find(id)!.ToModel();
         }
 
-        public override IEnumerable<Computer> GetOne2(int id)
+        public override IEnumerable<Clavier> GetOne2(int id)
         {
-            yield return _db.Computers.Find(id)!.ToModel();
+            yield return _db.claviers.Find(id)!.ToModel();
         }
 
-        public override bool Update(Computer Model)
+        public override bool Update(Clavier Model)
         {
-            ComputerEntity toUpdate = _db.Computers.Find(Model.id)!;
+           ClavierEntity toUpdate = _db.claviers.Find(Model.id)!;
 
             toUpdate.id = int.Parse(Model.id.ToString());
-            _db.Computers.Remove(_db.Computers.Find(Model.id)!);
+            _db.claviers.Remove(_db.claviers.Find(Model.id)!);
             toUpdate = Model.ToEntity();
-            _db.Computers.Add(toUpdate);
+            _db.claviers.Add(toUpdate);
             try
             {
                 _db.SaveChanges();
@@ -83,4 +83,6 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
         }
     }
     }
+
+    
 

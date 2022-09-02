@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gestion.dinventaire.Backend.DAL.Repositories
+namespace Gestion.dinventaire.Backend.DAL.Repositories.Interface
 {
     public interface IRepository<T> where T : class
     {

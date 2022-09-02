@@ -1,5 +1,6 @@
 ﻿using Gestion.dinventaire.Backend.DAL.Enteties;
 using Gestion.dinventaire.Backend.DAL.Mappers;
+using Gestion.dinventaire.Backend.DAL.Repositories.Interface;
 using Gestion.dinventaire.Backend.Models;
 using Gestion.Inventaire.Model.Models;
 using Microsoft.EntityFrameworkCore;

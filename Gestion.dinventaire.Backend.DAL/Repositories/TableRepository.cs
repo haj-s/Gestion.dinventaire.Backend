@@ -12,16 +12,16 @@ using System.Threading.Tasks;
 
 namespace Gestion.dinventaire.Backend.DAL.Repositories
 {
-    public class ComputerRepository : BaseRepository<Computer>, IComputerRepository
+    public class TableRepository : BaseRepository<Table>,ITableRepositrory
     {
-        public ComputerRepository(APIContext context) : base(context)
+        public TableRepository(APIContext context) : base(context)
         {
         }
 
-        public override bool Add(Computer Model)
+        public override bool Add(Table Model)
         {
-            ComputerEntity toInsert = Model.ToEntity();
-            _db.Computers.Add(toInsert);
+           TableEntity toInsert = Model.ToEntity();
+            _db.Tables.Add(toInsert);
             try
             {
                 _db.SaveChanges();
@@ -29,7 +29,7 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
             }
             catch (DbUpdateException)
             {
-                _db.Computers.Remove(toInsert);
+                _db.Tables.Remove(toInsert);
                 return false;
             }
         }
@@ -38,7 +38,7 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
         {
             try
             {
-                _db.Computers.Remove(_db.Computers.Find(id)!);
+                _db.Tables.Remove(_db.Tables.Find(id)!);
                 _db.SaveChanges();
                 return true;
             }
@@ -48,29 +48,29 @@ namespace Gestion.dinventaire.Backend.DAL.Repositories
             }
         }
 
-        public override IEnumerable<Computer> GetAll()
+        public override IEnumerable<Table> GetAll()
         {
-            return _db.Computers.Select(m => m.ToModel());
+            return _db.Tables.Select(m => m.ToModel());
         }
 
-        public override Computer GetOne(int id)
+        public override Table GetOne(int id)
         {
-             return _db.Computers.Find(id)!.ToModel();
+            return _db.Tables.Find(id)!.ToModel();
         }
 
-        public override IEnumerable<Computer> GetOne2(int id)
+        public override IEnumerable<Table> GetOne2(int id)
         {
-            yield return _db.Computers.Find(id)!.ToModel();
+            yield return _db.Tables.Find(id)!.ToModel();
         }
 
-        public override bool Update(Computer Model)
+        public override bool Update(Table Model)
         {
-            ComputerEntity toUpdate = _db.Computers.Find(Model.id)!;
+            TableEntity toUpdate = _db.Tables.Find(Model.id)!;
 
             toUpdate.id = int.Parse(Model.id.ToString());
-            _db.Computers.Remove(_db.Computers.Find(Model.id)!);
+            _db.Tables.Remove(_db.Tables.Find(Model.id)!);
             toUpdate = Model.ToEntity();
-            _db.Computers.Add(toUpdate);
+            _db.Tables.Add(toUpdate);
             try
             {
                 _db.SaveChanges();

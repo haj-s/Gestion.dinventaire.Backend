@@ -1,4 +1,5 @@
 ﻿using Gestion.dinventaire.Backend.DAL.Enteties;
+using Gestion.dinventaire.Backend.DAL.Repositories.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Gestion.dinventaire.Backend.DAL.Repositories
 {
-  public abstract class BaseRepository<T> : IRepository<T>
+    public abstract class BaseRepository<T> : IRepository<T>
         where T : class
     {
         protected readonly APIContext _db;
