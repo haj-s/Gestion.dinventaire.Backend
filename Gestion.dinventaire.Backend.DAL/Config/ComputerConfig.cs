@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace Gestion.dinventaire.Backend.DAL.Config
 {
     public class ComputerConfig
-         : IEntityTypeConfiguration<Computer>
+         : IEntityTypeConfiguration<ComputerEntity>
     {
-        public void Configure(EntityTypeBuilder<Computer> builder)
+        public void Configure(EntityTypeBuilder<ComputerEntity> builder)
         {
             builder.ToTable("T_Computer");
             builder.HasKey(x => x.id).HasName("PK_computer");

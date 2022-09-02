@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 namespace Gestion.dinventaire.Backend.DAL.Config
 {
     public class TableConfig
-         : IEntityTypeConfiguration<Table>
+         : IEntityTypeConfiguration<TableEntity>
     {
-        public void Configure(EntityTypeBuilder<Table> builder)
+        public void Configure(EntityTypeBuilder<TableEntity> builder)
         {
             builder.ToTable("T_Table");
             builder.HasKey(x => x.id).HasName("PK_Table");
@@ -20,7 +20,7 @@ namespace Gestion.dinventaire.Backend.DAL.Config
             builder.Property(x => x.type).IsRequired();
             builder.Property(x => x.reference).IsRequired().HasMaxLength(320);
             builder.Property(x => x.image).IsRequired();
-            builder.Property(x => x.description).IsRequired();
+            builder.Property(x => x.model).IsRequired();
             builder.Property(x => x.dateDebut).IsRequired();
             builder.Property(x => x.dateFin).IsRequired();
 

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 namespace Gestion.dinventaire.Backend.DAL.Config
 {
     public class ChaiseConfig
-          : IEntityTypeConfiguration<ChaiseBurautique>
+          : IEntityTypeConfiguration<ChaiseBurautiqueEntity>
     {
-        public void Configure(EntityTypeBuilder<ChaiseBurautique> builder)
+        public void Configure(EntityTypeBuilder<ChaiseBurautiqueEntity> builder)
         {
             builder.ToTable("T_chaise");
             builder.HasKey(x => x.id).HasName("PK_chaise");

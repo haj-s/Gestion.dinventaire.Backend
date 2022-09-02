@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 namespace Gestion.dinventaire.Backend.DAL.Config
 {
     internal class ClavierConfig
-         : IEntityTypeConfiguration<Clavier>
+         : IEntityTypeConfiguration<ClavierEntity>
     {
-        public void Configure(EntityTypeBuilder<Clavier> builder)
+        public void Configure(EntityTypeBuilder<ClavierEntity> builder)
         {
             builder.ToTable("T_Clavier");
             builder.HasKey(x => x.id).HasName("PK_clavier");

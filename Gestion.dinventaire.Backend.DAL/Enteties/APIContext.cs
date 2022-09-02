@@ -13,11 +13,11 @@ namespace Gestion.dinventaire.Backend.DAL.Enteties
         public APIContext(DbContextOptions options) : base(options)
         {
             
-                Employees = Set<Employee>();
-                Tables = Set<Table>();
-                claviers = Set<Clavier>();
-                Computers = Set<Computer>();
-                ChaiseBurautiques = Set<ChaiseBurautique>();
+                Employees = Set<EmployeeEntity>();
+                Tables = Set<TableEntity>();
+                claviers = Set<ClavierEntity>();
+                Computers = Set<ComputerEntity>();
+                ChaiseBurautiques = Set<ChaiseBurautiqueEntity>();
                 //equipement_Materielle_Physiques=Set<Equipement_materielle_physique>();
                 //equipement_Materielle_Electroniques = Set<Equipement_materielle_electronique>();
 
@@ -28,12 +28,12 @@ namespace Gestion.dinventaire.Backend.DAL.Enteties
 
 
         //private readonly string _cnstr;
-        public DbSet<Employee>? Employees { get; set; }
+        public DbSet<EmployeeEntity> Employees { get; set; }
         
-        public DbSet<Table>? Tables { get; set; }
-        public DbSet<Clavier>? claviers { get; set; }
-        public DbSet<Computer>? Computers { get; set; }
-        public DbSet<ChaiseBurautique>? ChaiseBurautiques { get; set; }
+        public DbSet<TableEntity> Tables { get; set; }
+        public DbSet<ClavierEntity> claviers { get; set; }
+        public DbSet<ComputerEntity> Computers { get; set; }
+        public DbSet<ChaiseBurautiqueEntity> ChaiseBurautiques { get; set; }
         //public DbSet<Equipement_materielle_electronique>? equipement_Materielle_Electroniques { get; set; }
         //   public DbSet<Equipement_materielle_physique>? equipement_Materielle_Physiques { get; set; }
 
@@ -77,12 +77,12 @@ namespace Gestion.dinventaire.Backend.DAL.Enteties
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //configuration de mes entité
-            modelBuilder.ApplyConfiguration<Employee>(new EmployeeConfig());
-            modelBuilder.ApplyConfiguration<Table>(new TableConfig());
+            modelBuilder.ApplyConfiguration<EmployeeEntity>(new EmployeeConfig());
+            modelBuilder.ApplyConfiguration<TableEntity>(new TableConfig());
 
-            modelBuilder.ApplyConfiguration<ChaiseBurautique>(new ChaiseConfig());
-            modelBuilder.ApplyConfiguration<Clavier>(new ClavierConfig());
-            modelBuilder.ApplyConfiguration<Computer>(new ComputerConfig());
+            modelBuilder.ApplyConfiguration<ChaiseBurautiqueEntity>(new ChaiseConfig());
+            modelBuilder.ApplyConfiguration<ClavierEntity>(new ClavierConfig());
+            modelBuilder.ApplyConfiguration<ComputerEntity>(new ComputerConfig());
 
         }
     }
