@@ -8,10 +8,11 @@ namespace Gestion.Inventaire.Model.Models
 {
     public class Chaise : IChaise
     {
-        public Chaise(int id, string Reference, string type, string image, DateTime dateDebut, DateTime dateFin )
+        public Chaise(int id, string Reference, string model, string type, string image, DateTime dateDebut, DateTime dateFin )
         {
             this.id = id;
-            reference = Reference;
+            this.reference = Reference;
+            this.model = model;
             this.type = type;
             this.image = image;
             this.dateDebut = dateDebut;
@@ -21,6 +22,7 @@ namespace Gestion.Inventaire.Model.Models
 
         public int id { get; set; }
         public string? reference { get; set; }
+        public string? model { get; set; }
         public string? type { get; set; }
         public string? image { get; set; }
         public DateTime dateDebut { get; set; }

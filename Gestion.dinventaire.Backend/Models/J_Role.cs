@@ -1,4 +1,4 @@
-﻿namespace Gestion.dinventaire.Backend.JWTAuthentification
+﻿namespace Gestion.dinventaire.Backend.Models
 {
     public class J_Role
     {

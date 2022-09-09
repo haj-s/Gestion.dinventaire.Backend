@@ -11,9 +11,10 @@ namespace Gestion.Inventaire.Model.Models
 {
     public class Employee:IdentityUser<int>
     {
-        public Employee(string userName, string Email, string Password, bool isActif)  
+        public Employee(string FirstName, string LastName, string Email, string Password, bool isActif)  
         {
-            username=userName;
+            firstName= FirstName;
+            lastName= LastName;
             email = Email;
             password = Password;
             IsActif = isActif;
@@ -21,7 +22,8 @@ namespace Gestion.Inventaire.Model.Models
         }
 
         //public int id { get; set; }
-        public string? username { get; set; }
+        public string? firstName { get; set; }
+        public string? lastName { get; set; }
         public string? email { get; set; }
         public string? password { get; set; }
         public bool? IsActif { get; set; }

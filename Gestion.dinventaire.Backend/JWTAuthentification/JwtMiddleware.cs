@@ -22,7 +22,7 @@ namespace Gestion.dinventaire.Backend.JWTAuthentification
 
             if (token != null)
             {
-                byte[] macle = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRETJWT_Badge2022EF", EnvironmentVariableTarget.Machine) ?? "");
+                byte[] macle = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT", EnvironmentVariableTarget.Machine) ?? "");
                 JwtSecurityTokenHandler handler = new();
                 ClaimsPrincipal c = handler.ValidateToken(token, new TokenValidationParameters
                 {

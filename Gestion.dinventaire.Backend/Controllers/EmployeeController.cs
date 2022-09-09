@@ -12,26 +12,26 @@ namespace Gestion.dinventaire.Backend.Controllers
     [Authorization]
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class EmployeeController : Controller
+    public class EmployeeController : ControllerBase
     {
 
         private readonly IJWTManagerRepository _jWTManager;
         private readonly EmployeeRepository _employeeRepository;
-        private readonly SignInManager<EmployeeEntity> _signInManager;
-        private readonly UserManager<EmployeeEntity> _userManager;
+        //private readonly SignInManager<EmployeeEntity> _signInManager;
+        //private readonly UserManager<EmployeeEntity> _userManager;
         private readonly APIContext _context;
 
         public EmployeeController(IJWTManagerRepository jWTManager,
                                         EmployeeRepository employeeRepository,
-                                        SignInManager<EmployeeEntity> signInManager,
-                                        UserManager<EmployeeEntity> userManager,
+                                        //SignInManager<EmployeeEntity> signInManager,
+                                        //UserManager<EmployeeEntity> userManager,
                                         APIContext context
                 )
         {
             _jWTManager = jWTManager;
             _employeeRepository = employeeRepository;
-            _signInManager = signInManager;
-            _userManager = userManager;
+            //_signInManager = signInManager;
+            //_userManager = userManager;
             _context = context;
         }
 

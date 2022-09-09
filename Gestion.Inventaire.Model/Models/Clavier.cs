@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion.Inventaire.Model.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gestion.Inventaire.Model.Models
 {
-   public class Clavier
+   public class Clavier:IClavier
     {
         public Clavier(int id, string? type, string? reference, string? image, string? model, DateTime dateDebut, DateTime dateFin)
         {

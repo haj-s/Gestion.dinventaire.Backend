@@ -7,11 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion.dinventaire.Backend
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion.dinventaire.Backend.DAL", "Gestion.dinventaire.Backend.DAL\Gestion.dinventaire.Backend.DAL.csproj", "{ED5D6168-01A0-4037-9869-A8457CC7B9D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion.Inventaire.Model", "Gestion.Inventaire.Model\Gestion.Inventaire.Model.csproj", "{3D2A460B-5600-4AB3-8CEC-4610BED09514}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{1FDAF789-E1A6-41DE-BB19-5ABE0451F421}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{24956472-CA08-4E80-99E9-7A7451BCA8FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion.Inventaire.Model", "Gestion.Inventaire.Model\Gestion.Inventaire.Model.csproj", "{3D2A460B-5600-4AB3-8CEC-4610BED09514}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,9 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{24956472-CA08-4E80-99E9-7A7451BCA8FF} = {1FDAF789-E1A6-41DE-BB19-5ABE0451F421}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4393667-5E73-4E51-8301-77CA19588221}

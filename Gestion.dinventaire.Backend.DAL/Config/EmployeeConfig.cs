@@ -18,14 +18,15 @@ namespace Gestion.dinventaire.Backend.DAL.Config
         builder.ToTable("T_Employee");
             //builder.HasKey(x => x.id).HasName("PK_Employee");
             //builder.Property(x => x.id).ValueGeneratedOnAdd();
-            builder.Property(x => x.username).IsRequired();
-        builder.Property(x => x.email).IsRequired().HasMaxLength(320);
+            builder.Property(x => x.firstName).IsRequired();
+            builder.Property(x => x.lastName).IsRequired();
+        builder.Property(x => x.Email).IsRequired().HasMaxLength(320);
         builder.Property(x => x.password).IsRequired();
         builder.Property(x => x.IsActif).HasDefaultValue(false);
         builder.HasCheckConstraint("checkMinLenMail", "lEN(Email)>=5");
-        builder.HasIndex(x => x.email).IsUnique();
+            builder.HasIndex(x => x.Email).IsUnique();
 
-    }
+        }
 
     
     }

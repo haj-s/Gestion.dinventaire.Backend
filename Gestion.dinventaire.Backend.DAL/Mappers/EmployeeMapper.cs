@@ -8,9 +8,10 @@ namespace Gestion.dinventaire.Backend.DAL.Mappers
         public static Employee ToModel(this EmployeeEntity Entity)
         {
             Employee employee = new(
-                userName: Entity?.username ?? string.Empty,
+                FirstName: Entity?.firstName ?? string.Empty,
+                LastName:Entity?.lastName?? string.Empty,
 
-                Email: Entity?.email ?? string.Empty,
+                Email: Entity?.Email ?? string.Empty,
                 Password: Entity?.password ?? string.Empty,
                 isActif: Entity?.IsActif ?? true
                 );
@@ -29,8 +30,9 @@ namespace Gestion.dinventaire.Backend.DAL.Mappers
         {
             return new EmployeeEntity()
             {
-                username = Model.username,
-                email = Model.email,
+                firstName = Model.firstName,
+                lastName=Model.lastName,
+                Email = Model.email,
                 password = Model.password,
 
             };

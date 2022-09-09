@@ -6,6 +6,7 @@ namespace Gestion.dinventaire.Backend.Models
     {
         public int id { get; set; }
         public string? reference { get; set; }
+        public string? model { get; set; }
         public string? type { get; set; }
         public string? image { get; set; }
         public DateTime dateDebut { get; set; }
